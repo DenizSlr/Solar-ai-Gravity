@@ -34,7 +34,7 @@ const Home = () => {
                 <div className="container">
                     <div className="split-layout">
                         <FadeIn className="split-image">
-                            <img src="/assets/authentic_office_meeting.png" alt="Strategie Meeting" />
+                            <img src="/assets/office_meeting_real.png" alt="Strategie Meeting" />
                         </FadeIn>
                         <FadeIn delay={200} className="split-content">
                             <h2 className="section-title">Wat levert een website laten maken op?</h2>
@@ -154,19 +154,19 @@ const Home = () => {
                                 <div className="case-content">
                                     <h3>Coach Ede</h3>
                                     <p>Website & Branding</p>
-                                    <Link to="/cases#coach-ede" className="case-link">Bekijk Case <ArrowRight size={16} /></Link>
+                                    <Link to="/cases#coach-ede" className="btn btn-outline btn-sm">Bekijk Case</Link>
                                 </div>
                             </Link>
                         </FadeIn>
                         <FadeIn delay={200} className="case-card clickable">
-                            <Link to="/cases" className="case-link-wrapper">
+                            <Link to="/cases#serenity-spa">
                                 <div className="case-image">
                                     <img src="/assets/serenity_real_hero.png" alt="Serenity Spa" />
                                 </div>
                                 <div className="case-content">
                                     <h3>Serenity Spa</h3>
                                     <p>Webshop & Experience</p>
-                                    <Link to="/cases#serenity-spa" className="case-link">Bekijk Case <ArrowRight size={16} /></Link>
+                                    <Link to="/cases#serenity-spa" className="btn btn-outline btn-sm">Bekijk Case</Link>
                                 </div>
                             </Link>
                         </FadeIn>
