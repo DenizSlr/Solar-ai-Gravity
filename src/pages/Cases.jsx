@@ -17,7 +17,7 @@ const Cases = () => {
             </section>
 
             {/* Case 1: Coach Ede */}
-            <section className="section case-study">
+            <section id="coach-ede" className="section case-study">
                 <div className="container">
                     <FadeIn>
                         <div className="case-header">
@@ -64,7 +64,7 @@ const Cases = () => {
             </section>
 
             {/* Case 2: Serenity Spa */}
-            <section className="section case-study bg-secondary">
+            <section id="serenity-spa" className="section case-study bg-secondary">
                 <div className="container">
                     <FadeIn>
                         <div className="case-header">

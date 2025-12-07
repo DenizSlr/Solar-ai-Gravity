@@ -94,7 +94,7 @@ const Services = () => {
                     </FadeIn>
                     <div className="pricing-grid">
                         <FadeIn delay={100} className="pricing-card">
-                            <h3>Basis Shop</h3>
+                            <h3>Starter</h3>
                             <div className="price">Vanaf €599</div>
                             <ul className="features">
                                 <li><Check size={16} /> Tot 20 Producten</li>

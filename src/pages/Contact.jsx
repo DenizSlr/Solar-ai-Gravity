@@ -1,35 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
 import FadeIn from '../components/FadeIn';
 import './Contact.css';
 
 const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        budget: '',
-        service: '',
-        message: ''
-    });
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Simulate form submission
-        alert('Bedankt voor uw bericht! We nemen zo snel mogelijk contact op.');
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            budget: '',
-            service: '',
-            message: ''
-        });
-    };
 
     return (
         <div className="contact-page">
@@ -80,28 +55,27 @@ const Contact = () => {
 
                     {/* Contact Form */}
                     <FadeIn delay={200} className="contact-form-wrapper">
-                        <form onSubmit={handleSubmit} className="contact-form">
+                        <form action="https://api.web3forms.com/submit" method="POST" className="contact-form">
+                            <input type="hidden" name="access_key" value="7d06753f-1fa4-4b86-a81b-a717f8aec272" />
+                            <input type="hidden" name="email" value="info@solarai.nl" />
+
                             <div className="form-group">
                                 <label htmlFor="name">Naam</label>
                                 <input
                                     type="text"
                                     id="name"
                                     name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
                                     required
                                     placeholder="Uw naam"
                                 />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="email">E-mail</label>
+                                <label htmlFor="from">E-mail</label>
                                 <input
                                     type="email"
-                                    id="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
+                                    id="from"
+                                    name="from"
                                     required
                                     placeholder="uw@email.nl"
                                 />
@@ -113,8 +87,6 @@ const Contact = () => {
                                     type="tel"
                                     id="phone"
                                     name="phone"
-                                    value={formData.phone}
-                                    onChange={handleChange}
                                     placeholder="06 12345678"
                                 />
                             </div>
@@ -125,8 +97,6 @@ const Contact = () => {
                                     <select
                                         id="budget"
                                         name="budget"
-                                        value={formData.budget}
-                                        onChange={handleChange}
                                     >
                                         <option value="">Maak een keuze</option>
                                         <option value="250-500">€250 - €500</option>
@@ -142,8 +112,6 @@ const Contact = () => {
                                     <select
                                         id="service"
                                         name="service"
-                                        value={formData.service}
-                                        onChange={handleChange}
                                     >
                                         <option value="">Maak een keuze</option>
                                         <option value="website">Website Ontwikkeling</option>
@@ -160,8 +128,7 @@ const Contact = () => {
                                 <textarea
                                     id="message"
                                     name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
+                                    required
                                     rows="4"
                                     placeholder="Vertel ons over uw project..."
                                 ></textarea>
