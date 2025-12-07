@@ -153,7 +153,7 @@ const Services = () => {
                                 Wij koppelen ChatGPT, Midjourney en andere API's direct aan uw systemen.
                             </p>
                             <div className="price-tag">Prijs op aanvraag</div>
-                            <Link to="/contact" className="btn btn-outline full-width">Bespreek mogelijkheden</Link>
+                            <Link to="/contact" className="btn btn-outline btn-sm">Bespreek mogelijkheden</Link>
                         </FadeIn>
                         <FadeIn delay={200} className="other-service-card">
                             <h2>Advertentiebeheer</h2>
@@ -162,7 +162,7 @@ const Services = () => {
                                 Wij verzorgen de strategie, creatie, retargeting en continue optimalisatie voor maximaal rendement.
                             </p>
                             <div className="price-tag">Prijs op aanvraag</div>
-                            <Link to="/contact" className="link-arrow">Bespreek mogelijkheden <ArrowRight size={16} /></Link>
+                            <Link to="/contact" className="btn btn-outline btn-sm">Bespreek mogelijkheden</Link>
                         </FadeIn>
                     </div>
                 </div>

@@ -34,7 +34,7 @@ const Home = () => {
                 <div className="container">
                     <div className="split-layout">
                         <FadeIn className="split-image">
-                            <img src="/assets/office_meeting_real.png" alt="Strategie Meeting" />
+                            <img src="/assets/professional_web_growth_analysis.png" alt="Strategie Meeting" />
                         </FadeIn>
                         <FadeIn delay={200} className="split-content">
                             <h2 className="section-title">Wat levert een website laten maken op?</h2>
@@ -56,7 +56,7 @@ const Home = () => {
                 <div className="container">
                     <div className="split-layout reverse">
                         <FadeIn className="split-image">
-                            <img src="/assets/digital_excellence_concept.png" alt="Digitale Groei" />
+                            <img src="/assets/digital_excellence_workspace.png" alt="Digitale Groei" />
                         </FadeIn>
                         <FadeIn delay={200} className="split-content">
                             <h2 className="section-title">Nog meer redenen om een website te laten maken</h2>
@@ -159,7 +159,7 @@ const Home = () => {
                             </Link>
                         </FadeIn>
                         <FadeIn delay={200} className="case-card clickable">
-                            <Link to="/cases#serenity-spa">
+                            <Link to="/cases" className="case-link-wrapper">
                                 <div className="case-image">
                                     <img src="/assets/serenity_real_hero.png" alt="Serenity Spa" />
                                 </div>

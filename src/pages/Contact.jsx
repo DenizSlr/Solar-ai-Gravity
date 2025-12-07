@@ -4,25 +4,24 @@ import FadeIn from '../components/FadeIn';
 import './Contact.css';
 
 const Contact = () => {
-    const [isSubmitting, setIsSubmitting] = React.useState(false);
     const [showPopup, setShowPopup] = React.useState(false);
+    const [isSubmitting, setIsSubmitting] = React.useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        const formData = new FormData(e.target);
-        formData.append("access_key", "7d06753f-1fa4-4b86-a81b-a717f8aec272");
-        formData.append("email", "info@solarai.nl");
+        const form = e.target;
+        const formData = new FormData(form);
 
         try {
             const response = await fetch("https://api.web3forms.com/submit", {
                 method: "POST",
                 body: formData
             });
-            const data = await response.json();
-            if (data.success) {
+
+            if (response.ok) {
                 setShowPopup(true);
-                e.target.reset();
+                form.reset();
             } else {
                 alert("Er ging iets mis. Probeer het later opnieuw.");
             }
@@ -33,9 +32,18 @@ const Contact = () => {
         }
     };
 
-
     return (
         <div className="contact-page">
+            {showPopup && (
+                <div className="popup-overlay">
+                    <div className="popup-content">
+                        <h3>Bedankt!</h3>
+                        <p>Jouw bericht is verstuurd. We reageren zo snel mogelijk.</p>
+                        <button onClick={() => setShowPopup(false)} className="btn btn-primary btn-sm">Sluiten</button>
+                    </div>
+                </div>
+            )}
+
             <section className="page-header">
                 <div className="container">
                     <FadeIn>
@@ -83,17 +91,12 @@ const Contact = () => {
 
                     {/* Contact Form */}
                     <FadeIn delay={200} className="contact-form-wrapper">
-                        {showPopup && (
-                            <div className="popup-overlay">
-                                <div className="popup-content">
-                                    <h3>Bedankt!</h3>
-                                    <p>Dankjewel voor je bericht! We reageren zo snel mogelijk.</p>
-                                    <button onClick={() => setShowPopup(false)} className="btn btn-primary full-width">Sluiten</button>
-                                </div>
-                            </div>
-                        )}
-
                         <form onSubmit={handleSubmit} className="contact-form">
+                            <input type="hidden" name="access_key" value="7d06753f-1fa4-4b86-a81b-a717f8aec272" />
+                            <input type="hidden" name="email" value="info@solarai.nl" />
+                            {/* Honeypot to prevent spam */}
+                            <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
                             <div className="form-group">
                                 <label htmlFor="name">Naam</label>
                                 <input
@@ -102,8 +105,6 @@ const Contact = () => {
                                     name="name"
                                     required
                                     placeholder="Uw naam"
-                                    value={formData.name}
-                                    onChange={handleChange}
                                 />
                             </div>
 
@@ -115,8 +116,6 @@ const Contact = () => {
                                     name="from"
                                     required
                                     placeholder="uw@email.nl"
-                                    value={formData.from}
-                                    onChange={handleChange}
                                 />
                             </div>
 
@@ -127,8 +126,6 @@ const Contact = () => {
                                     id="phone"
                                     name="phone"
                                     placeholder="06 12345678"
-                                    value={formData.phone}
-                                    onChange={handleChange}
                                 />
                             </div>
 
@@ -138,8 +135,6 @@ const Contact = () => {
                                     <select
                                         id="budget"
                                         name="budget"
-                                        value={formData.budget}
-                                        onChange={handleChange}
                                     >
                                         <option value="">Maak een keuze</option>
                                         <option value="250-500">€250 - €500</option>
@@ -155,8 +150,6 @@ const Contact = () => {
                                     <select
                                         id="service"
                                         name="service"
-                                        value={formData.service}
-                                        onChange={handleChange}
                                     >
                                         <option value="">Maak een keuze</option>
                                         <option value="website">Website Ontwikkeling</option>
@@ -176,8 +169,6 @@ const Contact = () => {
                                     required
                                     rows="4"
                                     placeholder="Vertel ons over uw project..."
-                                    value={formData.message}
-                                    onChange={handleChange}
                                 ></textarea>
                             </div>
 

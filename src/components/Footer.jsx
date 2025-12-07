@@ -28,8 +28,7 @@ const Footer = () => {
                     <h3>Contact</h3>
                     <a href="tel:+31641226253">+31 6 41226253</a>
                     <a href="mailto:info@solarai.nl">info@solarai.nl</a>
-                    <p>24/7 bereikbaar</p>
-                    <p className="text-sm text-muted" style={{ marginTop: '0.5rem' }}>KvK: 98280031</p>
+                    <p className="text-sm text-muted" style={{ marginTop: '0.5rem', fontWeight: 500 }}>KvK: 98280031</p>
                 </div>
             </div>
             <div className="container footer-bottom">
