@@ -35,8 +35,8 @@ const Contact = () => {
     return (
         <div className="contact-page">
             {showPopup && (
-                <div className="popup-overlay">
-                    <div className="popup-content">
+                <div className="popup-overlay" onClick={() => setShowPopup(false)}>
+                    <div className="popup-content" onClick={(e) => e.stopPropagation()}>
                         <h3>Bedankt!</h3>
                         <p>Jouw bericht is verstuurd. We reageren zo snel mogelijk.</p>
                         <button onClick={() => setShowPopup(false)} className="btn btn-primary btn-sm">Sluiten</button>

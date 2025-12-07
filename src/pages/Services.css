@@ -119,18 +119,32 @@
 .other-service-card {
     background: var(--color-bg-secondary);
     border: 1px solid var(--color-border);
-    border-radius: 12px;
-    padding: 3rem;
+    border-radius: 16px;
+    padding: 4rem;
+    /* Increased padding */
+    transition: transform var(--transition-normal), border-color var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+}
+
+.other-service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
 }
 
 .other-service-card h2 {
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    /* Larger title */
+    margin-bottom: 1.5rem;
 }
 
 .other-service-card p {
     color: var(--color-text-muted);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     line-height: 1.8;
+    font-size: 1.1rem;
 }
 
 .price-tag {
